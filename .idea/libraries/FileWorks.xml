@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="FileWorks">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/FileWorks/FileWorks.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Downloads/FileWorks/FileWorks.jar!/javadoc" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
