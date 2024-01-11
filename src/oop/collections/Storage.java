@@ -54,7 +54,6 @@ public class Storage {
         storage.inventory.add(new Item(Category.CLOTHES,"Gloves",333,2));
         storage.inventory.add(new Item(Category.FUEL,"OIL",641,50));
 
-
     }
 }
 class Item{
@@ -74,5 +73,5 @@ enum Category{
     FOOD,
     BEVERAGES,
     CLOTHES,
-    FUEL
+    FUEL;
 }
