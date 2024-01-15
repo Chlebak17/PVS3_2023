@@ -9,7 +9,6 @@ public class TonsOfBooks {
         DataImport di = new DataImport("books.txt");
         String line;
         String[] params;
-
         ArrayList<String> booken = new ArrayList<>();
 
         while(di.hasNext()){
