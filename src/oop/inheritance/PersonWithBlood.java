@@ -1,9 +1,59 @@
 package oop.inheritance;
 
+import fileworks.DataImport;
+
+import java.util.ArrayList;
+
 public class PersonWithBlood {
-    String name;
-    int weight,age,height;
-    BloodType blood;
+    public String name;
+    public int weight,age,height;
+    public BloodType blood;
+
+    public boolean compatibleToGive(PersonWithBlood toGive){
+        //this.blood toGive.blood
+        return true;
+
+    }
+
+    static void mockDonations(ArrayList<PersonWithBlood> persons){
+        PersonWithBlood first;
+        PersonWithBlood second;
+        for (int i = 0; i < 1000; i++) {
+            first = persons.get((int)(Math.random()* persons.size()));
+            second = persons.get((int)(Math.random()* persons.size()));
+            if (first.compatibleToGive(second)){
+                System.out.println("Osoba: " + first + "uspesne darovala: " + second);
+            }else{
+                System.out.println("Nekompatibilni typy");
+                System.out.println(first);
+                System.out.println(second);
+            }
+        }
+    }
+
+    public static void loadData(ArrayList<PersonWithBlood> persons ){
+        DataImport di = new DataImport("darciKrve.txt");
+        String line;
+        String[] params;
+
+        while (di.hasNext()){
+            line = di.readLine();
+            params = line.split(",");
+            persons.add(new PersonWithBlood(params[0],
+                    Integer.parseInt(params[1]),
+                    Integer.parseInt(params[2]),
+                    Integer.parseInt(params[3]),
+                    BloodType.eval(params[4])));
+        }
+        di.finishImport();
+    }
+
+    @Override
+    public String toString() {
+        return name + " " +
+                age + " " +
+                blood + " ";
+    }
 
     public PersonWithBlood(String name, int height, int weight, int age, BloodType blood) {
         this.name = name;
@@ -11,6 +61,19 @@ public class PersonWithBlood {
         this.weight = weight;
         this.age = age;
         this.blood = blood;
+    }
+
+    /*boolean canIGive(PersonWithBlood giver, PersonWithBlood getter){
+
+    }
+    */
+
+
+    public static void main(String[] args) {
+        ArrayList<PersonWithBlood> personsWithBlood = new ArrayList<>();
+        loadData(personsWithBlood);
+        mockDonations(personsWithBlood);
+
     }
 
 } enum BloodType{

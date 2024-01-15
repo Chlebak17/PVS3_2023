@@ -22,9 +22,8 @@ public class LotsOfBlood {
         di.finishImport();
     }
 
+
     public static void main(String[] args) {
-        ArrayList<PersonWithBlood> personsWithBlood = new ArrayList<>();
-        loadData(personsWithBlood);
 
 
     }
