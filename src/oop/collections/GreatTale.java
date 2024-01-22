@@ -11,17 +11,9 @@ public class GreatTale {
     /**
      * Tato metoda by mela zvladnout praci s TextMsg i Book
      */
-    static int wordCount(/*something here*/ ArrayList<String> pages){
+    static int wordCount(Readable a){
         int words = 0;
-        for (int i = 0; i < pages.size(); i++) {
-            String sentence = pages.get(i);
-            String arr = Arrays.toString(sentence.split(" "));
-            for (int j = 0; j < arr.length(); j++) {
-                words++;
-            }
-
-        }
-
+        words = a.getText().split(" ").length;
         return words;
     }
 
@@ -37,11 +29,11 @@ public class GreatTale {
         Book LordOTR = new Book("Lord of the rings", "J. R. R. Tolkien", "29-07-1968", 243, LOTR);
         Book LordOfTheRings = new Book("Lord of the rings", "John Ronald Reuel Tolkien", "29-07-1968", 243, LOTR);
         System.out.println(LordOTR.equals(LordOfTheRings));//melo by vratit True, maji stejne knizni ID (IBM)
-//
-//        System.out.println("Wordcount for LOTR: "  + wordCount(LordOTR));
-//        System.out.println("Wordcount for Msg: " + wordCount(msg));
 
-//        System.out.println("LOTR read:");
+        System.out.println("Wordcount for LOTR: "  + wordCount(LordOTR));
+        System.out.println("Wordcount for Msg: " + wordCount(msg));
+
+        System.out.println("LOTR read:");
         //read ve formatu
         // 1/4
         // text prvni stranky
@@ -88,8 +80,14 @@ class Book implements Readable{
     }
 
     @Override
-    public String getText(Book book) {
-        return book.pages.indexOf();
+    public String getText() {
+        String text = "";
+        for (int i = 0; i < pages.size(); i++) {
+            System.out.println(i+"/"+pages.size());
+            System.out.println(pages.get(i));
+            text += pages.get(i)+" ";
+        }
+        return text;
     }
 
     public boolean equals(Book book) {
