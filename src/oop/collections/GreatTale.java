@@ -15,6 +15,8 @@ public class GreatTale {
         int words = 0;
         words = a.getText().split(" ").length;
         return words;
+        //taky možnost
+        //return a.getText().split(" ").length;
     }
 
 
@@ -72,22 +74,28 @@ class Book implements Readable{
 
     @Override
     public void read() {
-        System.out.println("Book: " + name + " id is " + ID);
-        System.out.println("by: " + author);
-        System.out.println("with date: " + date);
-        System.out.println("Have: " + pages.size() + " pages");
+        for (int i = 0; i < pages.size(); i++) {
+            System.out.println((i+1)+"/"+pages.size());
+            System.out.println(pages.get(i));
+        }
 
     }
 
     @Override
     public String getText() {
-        String text = "";
-        for (int i = 0; i < pages.size(); i++) {
-            System.out.println(i+"/"+pages.size());
-            System.out.println(pages.get(i));
-            text += pages.get(i)+" ";
+        StringBuilder sb = new StringBuilder();
+        for (String page:
+             pages) {
+            //sb.append(page + " ");
+            sb.append(page);
+            sb.append(" ");
         }
-        return text;
+        return sb.toString();
+        //String text = "";
+        //for (int i = 0; i < pages.size(); i++) {
+        //    text += pages.get(i)+" ";
+        //}
+        //return text;
     }
 
     public boolean equals(Book book) {
