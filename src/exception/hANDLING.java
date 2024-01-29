@@ -6,15 +6,15 @@ import java.io.IOException;
 
 public class hANDLING {
 
-    static void printArray(int[] arr) throws ArrayIndexOutOfBoundsException{
+    static void printArray(int[] arr) throws FileNotFoundException {
         //odchyceno pri vytvoru
 //        try{
-//            System.out.println(arr[1]);
+            System.out.println(arr[1]);
 //        }catch (ArrayIndexOutOfBoundsException o){
 //            System.out.println("/D");
 //        }
 //        //System.out.println(arr[1]);
-         FileReader fr = new FileReader("neco.txt");
+//         FileReader fr = new FileReader("neco.txt");
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -28,6 +28,7 @@ public class hANDLING {
         }catch (ArrayIndexOutOfBoundsException hihi){
             System.out.println(":D");
         }
+        throw new RuntimeException();
 
 
     }
