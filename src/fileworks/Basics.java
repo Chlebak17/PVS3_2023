@@ -3,8 +3,24 @@ package fileworks;
 import oop.interfaces.Film;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class Basics {
+
+    static void Tree(File root){
+        File[] folderContent;
+        if (root.isFile()) {
+            System.out.println("Soubor: " + root.getPath());
+        } else if (root.isDirectory()) {
+            System.out.println("Slozka: " + root.getPath());
+            folderContent = root.listFiles();
+            for (File file:
+                 folderContent) {
+                Tree(file);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 //        File file = new File("books.txt");
         File file = new File("nejakyFiles\\text.txt");
@@ -21,6 +37,14 @@ public class Basics {
         File newOne = new File("nejakyFiles\\novej");
 //        newOne.createNewFile(); ale ohlidej exception
 //        newOne.mkdir();
-        newOne.compareTo()
+//        newOne.compareTo();
+
+//        File directory = new File("nejakyFiles");
+        File directory = new File(".");//ukaze vse v aktualni slozce
+
+
+//        File[] contents =  directory.listFiles(); //ulozi vsechny file z adresare je to tak
+//        System.out.println(Arrays.toString(contents));
+            Tree(directory);
     }
 }
