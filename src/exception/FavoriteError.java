@@ -30,11 +30,11 @@ public class FavoriteError {
     }
 
     public static void main(String[] args) {
-       // infinity();
-        try{
-            countSaharaSandSeed(1);
-        }catch (StackOverflowError a){
-            System.out.println("Happy dog");
-        }
+//        infinity();
+//        try{
+//            countSaharaSandSeed(1);
+//        }catch (StackOverflowError a){
+//            System.out.println("Happy dog");
+//        }
     }
 }
