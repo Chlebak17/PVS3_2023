@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TimeMeasurements {
-    static String filePath = "nejakyFiles\\Lines.txt";
+    static String filePath = "nejakyFiles\\export.txt";
     static  void generateData(){
         DataExport de = new DataExport(filePath);
         for (int i = 0; i < 5_000_000; i++) {

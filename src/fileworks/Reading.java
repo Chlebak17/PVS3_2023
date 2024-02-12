@@ -33,17 +33,24 @@ public class Reading {
         sc.close();
         System.out.println(" ");
         //buffering:
+        //předčítá postupně
         BufferedReader br = new BufferedReader(new FileReader(new File(filePath)));
-        String line = " ";
+        String line = "";
         while ((line = br.readLine()) != null){
             System.out.println(line);
             line = br.readLine();
         }
         br.close();
 
+
         //useful: oldie goldie
+        //vátí nám to list se všemi řádkami
         System.out.println("ALL Lines");
         List<String> lines = Files.readAllLines(Paths.get(filePath));
         System.out.println(lines);
+        for (String s:
+             lines) {
+            System.out.println(s);
+        }
     }
 }
