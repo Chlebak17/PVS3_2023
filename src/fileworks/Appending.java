@@ -17,6 +17,7 @@ public class Appending {
             pw.close();
             pw = new PrintWriter(new BufferedWriter(new FileWriter(path, true)));
             pw.println("AHOj svwtě");
+            pw.append("ahas");
             pw.close();
 
         }catch (IOException e){
