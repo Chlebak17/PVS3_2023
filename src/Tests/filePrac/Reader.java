@@ -22,9 +22,9 @@ public class Reader{
             if (i == 0) {
                before = f;
             }else {
-                if () {
-
-                }
+//                if () {
+//
+//                }
             }
         }
 
