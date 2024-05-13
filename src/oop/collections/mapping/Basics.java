@@ -33,5 +33,7 @@ public class Basics {
                 .average()
                 .orElse(0);
         System.out.println(avgNameLenght);
+
+
     }
 }
