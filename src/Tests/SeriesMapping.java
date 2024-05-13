@@ -34,6 +34,8 @@ public class SeriesMapping {
         }
     }
 
+
+
     public static void main(String[] args) {
         //zde si hrajte :)
         loadSeries();
