@@ -10,10 +10,10 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://V:/Boháč/PRG/FileWorks.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive - SŠINFIS/Plocha/FileWorks.jar!/" />
         </CLASSES>
         <JAVADOC>
-          <root url="jar://V:/Boháč/PRG/FileWorks.jar!/javadoc" />
+          <root url="jar://$USER_HOME$/OneDrive - SŠINFIS/Plocha/FileWorks.jar!/javadoc" />
         </JAVADOC>
         <SOURCES />
       </library>
