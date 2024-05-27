@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Run {
     static ArrayList<TableSubject> subjects(String filePath){
@@ -23,10 +21,49 @@ public class Run {
         }
         return subjects;
     }
+
+    public static HashMap<String, ArrayList<TableSubject>> workPlaceEvents(ArrayList<TableSubject> subjects){
+        HashMap<String, ArrayList<TableSubject>> hashMap = new HashMap<>();
+        for(TableSubject subject: subjects){
+            if (hashMap.containsKey(subject)) {
+                    hashMap.get(subject.workplace).add(subject);
+            }else {
+                hashMap.put(subject.workplace, new ArrayList<TableSubject>());
+            }
+
+        }
+        return hashMap;
+    }
     public static void main(String[] args) {
         ArrayList<TableSubject> subjects = subjects("resources//rozvrhove-akce.txt");
         System.out.println(subjects);
+        HashSet<TableSubject> uniqeActions = new HashSet<>(subjects);
+//        HashSet<TableSubject> uniqueActionsAll = new HashSet<>();
+//        for (TableSubject td:
+//             subjects) {
+//            uniqueActionsAll.add(td);
+//        }
+        System.out.println(uniqeActions.size());
+        //Stejné číslo(806)
+//        System.out.println(uniqueActionsAll.size());
+        long uniqeActionsLamdba = subjects.stream()
+                .distinct()
+                .count();
+        //Stejné číslo(806)
+//        System.out.println(uniqeActionsLamdba);
+        HashSet<String> workPlaces = new HashSet<>();
+        for (TableSubject subject: subjects){
+            workPlaces.add(subject.workplace);
+        }
+        //Počet kateder (params[0])
+        System.out.println(workPlaces.size());
 
+        HashMap<String, ArrayList<TableSubject>> eventMap = workPlaceEvents(subjects);
+
+        for (String workplace:
+             eventMap.keySet()) {
+            System.out.println(workplace + ":" + eventMap.get(workplace).size());
+        }
     }
 }
 class TableSubject{
@@ -57,10 +94,27 @@ class TableSubject{
 
     @Override
     public String toString() {
-        return "TableSubject: " +
-                "workplace='" + workplace + '\'' +
-                ", subjectName='" + subjectName + '\'' +
-                ", type='" + type + '\'' +
-                ", semeseter='" + semeseter + '\'';
+        return "TableSubject: " + '\n'+
+                "workplace: " + workplace + '\n' +
+                "subjectName: " + subjectName + '\n' +
+                "type: " + type + '\n' +
+                "semeseter: " + semeseter;
+    }
+}
+class WorkPlaceEvent implements Comparable<WorkPlaceEvent>{
+    String name;
+    int eventCount;
+
+    public WorkPlaceEvent(String name, int eventCount) {
+        this.name = name;
+        this.eventCount = eventCount;
+    }
+
+    @Override
+    public int compareTo(WorkPlaceEvent o) {
+        if (this.eventCount == o.eventCount) {
+            return this.name.compareTo(o.name);
+        }
+        return Integer.compare(this.eventCount, o.eventCount);
     }
 }
