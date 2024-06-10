@@ -25,7 +25,7 @@ public class Run {
     public static HashMap<String, ArrayList<TableSubject>> workPlaceEvents(ArrayList<TableSubject> subjects){
         HashMap<String, ArrayList<TableSubject>> hashMap = new HashMap<>();
         for(TableSubject subject: subjects){
-            if (hashMap.containsKey(subject)) {
+            if (hashMap.containsKey(subject.workplace)) {
                     hashMap.get(subject.workplace).add(subject);
             }else {
                 hashMap.put(subject.workplace, new ArrayList<TableSubject>());
