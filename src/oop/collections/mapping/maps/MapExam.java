@@ -1,3 +1,5 @@
+package oop.collections.mapping.maps;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,7 +20,7 @@ public class MapExam {
 
     static int CitiesCount(String CountryCode){
         int allTowns = 0;
-        countryCities.size()
+        countryCities.size();
 
         return allTowns;
     }
@@ -27,6 +29,7 @@ public class MapExam {
         long disticnt = countryCities.get(CountryCode)
                 .stream().distinct()
                 .count();
+        return 0;
     }
 
 
@@ -65,7 +68,7 @@ public class MapExam {
         System.out.println(countryCities);
         System.out.println(countryCitiesAverage("AFG"));
     }
-}  class City{
+}class City{
     String name, district;
     int population;
 
