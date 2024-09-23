@@ -2,8 +2,12 @@ package gui.components;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Button extends JFrame {
+public class Button extends JFrame implements ActionListener{
+
+    JButton button,onButton;
 
     public Button(){
         this.setSize(500,500);
@@ -13,10 +17,18 @@ public class Button extends JFrame {
 
         this.setLayout(null);
 
-        JButton button = new JButton();
+        button = new JButton();
         button.setText("OFF");
         button.setFont(new Font("Consolas", Font.BOLD,40));
         button.setFocusable(false);
+
+//        Varianta 1
+//        button.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println("Button was pressed");
+//            }
+//        });
 
 //        button.setEnabled(false);
         button.setBounds(130,50,200,170);
@@ -26,7 +38,7 @@ public class Button extends JFrame {
 //        this.setBackground(new Color(0,0,255));
 //        set.opacity()
 
-        JButton onButton = new JButton("ON");
+        onButton = new JButton("CHANGE");
         onButton.setForeground(new Color(0xE01313));
         onButton.setFont(new Font("Consolas", Font.BOLD,40));
         onButton.setFocusable(false);
@@ -36,7 +48,8 @@ public class Button extends JFrame {
 //        y = y(off button) + výška(off Button)
         onButton.setBounds(130,280,200,170);
 
-
+        button.addActionListener(this);
+        onButton.addActionListener(this);
 
         this.add(button);
         this.add(onButton);
@@ -45,5 +58,22 @@ public class Button extends JFrame {
 
     public static void main(String[] args) {
         new Button().setVisible(true);
+    }
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == onButton) {
+            System.out.println("button is disable");
+            button.setEnabled(!button.isEnabled());
+
+        }
+        if (e.getSource() == button) {
+            System.out.println("Button was pressed");
+        }
     }
 }
